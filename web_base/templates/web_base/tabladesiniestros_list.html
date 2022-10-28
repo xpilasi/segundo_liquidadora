@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %} Estado siniestros {% endblock %}
+
+{% block content %}
+<div class="titulos">Siniestros</div>
+     
+<div id="base">  
+    <p></p>
+    <form method="GET" >
+        {% csrf_token %}
+        <input type="text" class="search_field" placeholder="Búsqueda por id siniestro"name="buscar_por_id" value={{valor_buscado_1}}>
+        
+        <input type="submit" class="botones_generales" value="Buscar">
+        
+    </form>
+    <form method="GET">
+        {% csrf_token %}
+        <input type="text" class="search_field" placeholder="Búsqueda por rut"name="buscar_por_rut" value={{valor_buscado_2}}>
+        
+        <input type="submit"class="botones_generales" value="Buscar">
+        
+    </form>
+<hr>
+    <div class="tabla_siniestros">
+        <table>
+            <tr>
+                <th>Id #</th>
+                <th>Rut conductor(a)</th> 
+                <th>Conductor(a)</th>
+                <th>Tipo siniestro</th>
+                <th>Fecha ingreso</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>   
+            
+            {% for siniestro in siniestros %}    
+            <tr>
+                <td>{{ siniestro.id}}</td>
+                <td>{{ siniestro.rut_conductor}}</td>
+                <td>{{ siniestro.nombre_conductor}} {{ siniestro.apellido_conductor}}</td>
+                <td>{{ siniestro.tipo_de_siniestro}}</td>
+                
+                <td>{{ siniestro.fecha_registro|date:'d/m/Y'}}</td>
+                <td>{{ siniestro.estado_siniestro}}</td>
+                <td>
+                    <a href="{{siniestro.id}}"><img src="{% static 'iconos/ojo.png' %}" alt="Ver"></a>
+                    <a href="editar_estado/{{siniestro.id}}"><img src="{% static 'iconos/editar.png' %}" alt="Editar"></a>
+                    <a href=""><img src="{% static 'iconos/pdf.png' %}" alt="Pdf"></a>
+                </td>
+            </tr>   
+            {% endfor %}
+            
+    
+    
+        </table>
+    
+    </div>
+</div>
+    
+    
+        
+            
+        
+    
+    
+{% endblock %}

@@ -1,0 +1,26 @@
+
+{% extends 'layout.html' %}
+{%load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+<div class="titulos"><a href="{% url 'siniestros' %}">Siniestros ></a>Formulario enviado</div>
+<div id="base"> 
+    <p>
+        <img src="{% static 'comprobado.png' %}" alt="My image" style="width:100px;height:100px;">
+    </p>
+
+
+
+    <form method = 'POST' action="">
+        {% csrf_token %}
+
+        <input type="submit" class="botones_generales" value="Volver"></input>
+
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %} Editar Pólizas {% endblock %}
+{% block content %}
+ 
+    <div class="titulos"><a href="{% url 'mantencion' %}">Mantención BD > </a>Tipos de siniestro</div>
+    <div id="base"> 
+        <p></p> 
+        <hr>
+
+    <table class="tabla_general">
+    <tr class="tr_general">
+        <th>Id #</th>
+        <th>Cod Siniestro</th>
+        <th>Tipo de Siniestro</th>
+        <th class="th_general">Acción</th>
+    </tr>
+
+    {% for tipo_siniestro in tipo_siniestros%}
+
+        {% if tipo_siniestro.tipo_siniestro and tipo_siniestro.cod_siniestro %}
+        <tr class="tr_general">
+            <td >{{tipo_siniestro.id }}</td>
+            <td >{{tipo_siniestro.cod_siniestro }}</td>
+            <td >{{tipo_siniestro.tipo_siniestro}} </td>
+            <td class="td_general"><a href="{% url 'editar_tipo_siniestro' %}{{tipo_siniestro.id}}">
+                <img src="{% static 'iconos/editar.png' %}" alt="Ver">
+                </a>
+            </td>
+        </tr>
+        
+        
+        {% endif %}  
+
+    {% endfor %}
+    </table>
+
+<p>
+    <a href="{% url 'editar_tipo_siniestro' %}"><h3 class="subs">Agregar tipo de siniestro</h3></a>
+    </p>  
+
+
+{% endblock %}

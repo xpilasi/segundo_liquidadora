@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %} Editar Pólizas {% endblock %}
+{% block content %}
+
+<div class="titulos"><a href="{% url 'mantencion' %}">Mantencion BD ></a>Editar póliza</div>
+<div id="base"> 
+        <p></p>  
+
+    <table class="tabla_general">
+        <tr class="tr_general">
+            <th class="th_general">Id #</th>
+            <th class="th_general">Cod Poliza</th>
+            <th class="th_general">Tipo de Póliza</th>
+            <th class="th_general">Acción</th>
+        </tr>
+
+        {% for poliza in polizas %}
+
+            {% if poliza.tipo_poliza and poliza.cod_poliza %}
+            <tr class="tr_general">
+                <td class="td_general">{{poliza.id}}</td>
+                <td class="td_general">{{poliza.cod_poliza}}</td>
+                <td class="td_general">{{poliza.tipo_poliza}} </a></td>
+                <td class="td_general">
+                    <a href="{% url 'editar_polizas' %}{{poliza.id}}">
+                    <img src="{% static 'iconos/editar.png' %}" alt="Editar">
+                </td>
+            </tr>
+            
+            {% endif %}  
+
+        {% endfor %}
+        </table>
+
+    <p>
+        <a href="{% url 'editar_polizas' %}"><h3>Agregar tipo de póliza</h3></a>
+        </p> 
+</div> 
+
+
+{% endblock %}

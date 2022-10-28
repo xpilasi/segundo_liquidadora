@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static%}
+
+{% block title %} Editar Vehículos {% endblock %}
+{% block content %}
+
+    <div class="titulos"><a href="{% url 'mantencion' %}">Mantención BD > </a>Tipos de vehículo</div>
+    <div id="base"> 
+        <p></p> 
+
+<table class="tabla_general">
+    <tr class="tr_general">
+        <th class="th_general">Id #</th>
+        <th class="th_general">Cod vehículo</th>
+        <th class="th_general">Tipo de Vehículo</th>
+        <th class="th_general">Acción</th>
+    </tr>
+
+    {% for tipo_vehiculo in tipo_vehiculos%}
+
+        {% if tipo_vehiculo.tipo_vehiculo and tipo_vehiculo.cod_vehiculo %}
+        <tr class="tr_general">
+            <td class="th_general">{{tipo_vehiculo.id }}</td>
+            <td class="th_general"> {{tipo_vehiculo.cod_vehiculo }}</td>
+            <td class="th_general">{{tipo_vehiculo.tipo_vehiculo}} </a></td>
+            <td class="td_general"><a href="{% url 'editar_tipo_vehiculo' %}{{tipo_vehiculo.id}}">
+                <img src="{% static 'iconos/editar.png' %}" alt="Ver">
+                </a>
+            </td>
+        </tr>
+        
+        {% endif %}  
+
+    {% endfor %}
+    </table>
+
+<p>
+    <a href="{% url 'editar_tipo_vehiculo' %}"><h3>Agregar tipo de vehículo</h3></a>
+    </p>  
+
+
+{% endblock %}

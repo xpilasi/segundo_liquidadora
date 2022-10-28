@@ -1,0 +1,226 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block content %} 
+
+
+{% if request.user.is_authenticated %}
+    
+<head>
+    <meta http-equiv="refresh" content="0; URL={% url 'mi_perfil' request.user.id %}">
+  </head>
+                    
+{% else %}
+    
+    <div class="barra_arriba_inicio">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn_index">
+            
+            <img src={% static 'iconos/menu.png' %} alt="menu" style="width:40px;height:40px;" class="menu_hamb_index"> 
+             
+        </label>  
+        <a href="#presentacion"><img src={% static 'logo_blanco.png' %} alt="My image" style="width:200px;height:50px;" class="logo_index"></a> 
+            <ul class="menu_resp_index">
+                
+                
+                <li><a href="#quienes-somos">Quiénes somos</a></li>
+                {% comment %} <li><a href="#equipo">Equipo</a></li> {% endcomment %}
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="{%url 'login'%}">Ingreso usuarios</a></li>
+                
+                
+                
+            </ul>
+    </div>
+
+    
+    <section class="full" id="presentacion">
+        
+            <div class="bloque_presentacion">
+                <h1 class="titulo_presentacion" >Sácale el jugo a tu tiempo. LiquidaYa</h1>
+                <a href="#quienes-somos">
+                <div class="limon">
+                    
+                </div>
+            </a>
+            
+            </div>
+    </section>
+    
+    <section class="bloque_quienes_somos" id="quienes-somos">
+        <h1 class="titulo_quienes_somos" >Quiénes somos</h1>
+        <div class="grid_quienes_somos">
+
+            <div class="caja_quienes_somos">
+                <div class="caja_interior_qs">
+                    <img src={% static 'iconos/network.png' %} style="width:56px;height:56px;"class="caja_interior_img">
+                </div>
+                
+                Somos parte de la red Crawford & Company, uno de los proveedores independientes más grande del mundo 
+                en liquidación y administración de siniestros, prevención de pérdidas y back office integral para el 
+                mercado asegurador.
+                <img src={% static 'limon_chico.png' %} style="width:20px;height:20px;"></p>
+            </div>
+
+            <div class="caja_quienes_somos">
+                <div class="caja_interior_qs">
+                    <img src={% static 'iconos/crush.png'%} style="width:56px;height:56px;">
+                </div>
+                
+                En Chile, llevamos +40 años apoyando a nuestros Clientes junto a un experimentado equipo de profesionales 
+                especialistas en siniestros de Transporte, Acuicultura y Riesgos Marítimos.
+                <img src={% static 'limon_chico.png' %} style="width:20px;height:20px;"></p>
+            </div>
+
+            <div class="caja_quienes_somos">
+                <div class="caja_interior_qs">
+                    <img src={% static 'iconos/24h.png' %} style="width:56px;height:56px;">
+                </div>
+                
+                Estamos disponibles 24/7 para recibir las denuncias de siniestros a través de internet, Contact Center, 
+                e-mails y teléfonos móviles. Mientras se disponga de logística coordinada y acceso al sitio del mismo, 
+                nuestros Inspectores llegan de inmediato al lugar del siniestro
+                <img src={% static 'limon_chico.png' %} style="width:20px;height:20px;"></p>
+            </div>
+        
+
+        </div>
+
+        
+    </section>
+    <section class="bloque_servicios" id="servicios">
+        <h1 class="titulo_servicios" >Servicios</h1>
+        <h1 class="subtitulo_servicios">Gestionamos tu siniestro con la compañía de seguros: rápido y fácil.</h1>
+            <div class="grid_servicios">
+                <div class="caja_servicios">
+
+                    <img class="servicios_imagen_grid" src={% static 'servicios/online.png' %}>
+                    <div class="servicios_texto_grid">100% Online</div>
+
+                </div>
+
+                <div class="caja_servicios">
+
+                    <img class="servicios_imagen_grid" src={% static 'servicios/taller.png' %}>
+                    <div class="servicios_texto_grid">Gestión Reparación</div>
+                       
+                </div>
+
+                <div class="caja_servicios">
+
+                    <img class="servicios_imagen_grid" src={% static 'servicios/online.png' %}>
+                    <div class="servicios_texto_grid">100% Online</div>
+                       
+                </div>
+            </div>
+    </section>
+
+
+
+    {% comment %} <section class="bloque_equipo" id="equipo">
+        
+            
+            <h1 class="titulo_equipo" >Equipo de trabajo</h1>
+            <h4 class="subtitulo_equipo" >Escríbenos y te responderemos dentro de las siguientes 24 horas.</h1>
+            
+                <div class="equipo">
+
+                    <div class="equipo_avatares">
+                        <img src="{% static 'avatares/1.png' %}">
+                        <ul>
+                            <li>José Cardozo</li>
+                            <li>Ingeniero Civil UAB</li>
+                            <li>Master en CCSS</li>
+                        </ul>
+                    </div>
+                        <div class="equipo_avatares">
+                        <img src="{% static 'avatares/2.png' %}">
+                        <ul>
+                            <li>José Cardozo</li>
+                            <li>Ingeniero Civil UAB</li>
+                            <li>Master en CCSS</li>
+                        </ul>
+                    </div>
+                        <div class="equipo_avatares">
+                        <img src="{% static 'avatares/3.png' %}">
+                        <ul>
+                            <li>José Cardozo</li>
+                            <li>Ingeniero Civil UAB</li>
+                            <li>Master en CCSS</li>
+                        </ul>
+                    </div>
+            
+                </div>
+        
+    </section> {% endcomment %}
+
+
+    <section class="linea_divisoria">
+    </section>
+    <section class="bloque_clientes" id="clientes">
+        <h1 class="titulo_clientes" >Nuestros Clientes</h1>
+       
+        <div class="grid_clientes">
+
+            
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/zurich.png' %}>
+            </div>
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/catalana.png' %}>
+            </div>
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/caixa.png' %}>
+            </div>
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/mapfre.png' %}>
+            </div>
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/racc.png' %}>
+            </div>
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/revolut.png' %}>
+            </div>
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/santander.png' %}>
+            </div>
+            <div class="caja_cliente"><img src={% static 'logos_clientes/finales/n26.png' %}>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="bloque_contacto" id="contacto">
+        
+        <div class="contacto">
+            <h1 class="titulo" >Contacto</h1>
+            <h4 class="subtitulo" >Escríbenos y te responderemos dentro de las siguientes 24 horas.</h1>
+            
+            <div class="form_contacto">
+                <form class="form_center" method="POST">
+                    {% csrf_token %}
+                    
+                    {%for el in form_contacto%}
+                   
+                       <label class="form_label">{{el.label}}</label>
+                        <br>
+                        
+                        {{el}}
+                        <br>
+                     
+                    {%endfor%}
+                      
+                       <input type='submit'class="boton_contacto" value="Enviar">                 
+
+                </form>
+            </div>
+        </div>
+    </section>
+    
+{% endif %}
+
+
+
+
+
+{% endblock %}

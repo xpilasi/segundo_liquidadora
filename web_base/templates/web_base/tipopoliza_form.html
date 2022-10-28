@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %} Editar Póliza{% endblock %}
+
+{% block content %}
+   
+<div class="titulos"><a href="{% url 'editar_polizas' %}">Pólizas ></a>Editar póliza</div>
+<div id="base"> 
+    <p></p>  
+
+    <form method="POST">
+
+        {% csrf_token %}  
+        {% for el in form %}
+            <table class="tabla_general_2">
+                <tr class="tr_general_2">
+                    <td class="td_general_2">{{el}}</td>
+                    
+                </tr>
+                <tr class="tr_general">
+                    <td class="td_general_2">
+                        <input type="submit" class="botones_generales" value="Actualizar">
+                    </td>
+
+                </tr>
+            </table>
+
+            {% endfor %}
+    </form>
+</div>
+        
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block title %} Perfil{% endblock %}
+
+
+{% block content %}
+
+
+
+
+    {% if request.user.id == user.id %}
+
+        <div class="titulos">Mi perfil</div>
+
+        <div id="base"> 
+            <hr> 
+            <table class="tabla_general_2">
+                <tr class="tr_general_2">
+                    <td class="td_general_2"><strong>Usuario: </strong></td>
+                    <td class="td_general_2">{{user.username}}</td>
+                </tr>
+                <tr class="tr_general_2">
+                    <td class="td_general_2"><strong>Nombre: </strong></td>
+                    <td class="td_general_2">{{user.first_name}}</td>
+                </tr>
+                <tr class="tr_general_2">
+                    <td class="td_general_2"><strong>Apellido: </strong></td>
+                    <td class="td_general_2">{{user.last_name}}</td>
+                </tr>
+                <tr class="tr_general_2">
+                    <td class="td_general_2"><strong>Email: </strong></td>
+                    <td class="td_general_2">{{user.email}}</td>
+                </tr>
+            </table>
+    {% else %}
+    <head>
+        <meta http-equiv="refresh" content="0; URL={% url 'mi_perfil' request.user.id %}">
+      </head>
+    {% endif %}  
+    
+    
+    
+    
+    
+    {% comment %} {% for el in user %}
+        <table class="tabla_general_2">
+            <tr class="tr_general_2">
+                <td class="td_general_2">{{el.field}}</td>
+                <td class="td_general_2">{{el}}</td>
+            </tr>
+
+    {% endfor %} {% endcomment %}
+    </div>
+</div>
+
+
+
+    
+
+    
+{% endblock %}

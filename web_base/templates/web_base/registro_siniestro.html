@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %} Ingreso {% endblock %}
+
+
+{% block content%}
+<div class="titulos">Registro nuevo siniestro</div>
+
+
+<div id="base"> 
+    <hr>
+    
+    <form method="POST">
+        {% csrf_token %}  
+        {% comment %} {{ form.as_p }} {% endcomment %}
+        <table class="tabla_registro">
+        {% for el in form %}
+            <tr>
+                <td>{{el.label}}</td>
+                <td>{{el}}</td>
+                
+            </tr>
+        {% endfor %}
+        
+        
+        <tr>
+            <td></td>
+            <td><input type="submit" class="botones_generales" value="Registrar"></td>
+        </tr>
+    </table>
+    </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}  {% endblock %}
+ <!--CSS--><link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+{% block content %}
+<div class="login">
+    <div class="login_dentro">
+    
+        <a href="{% url 'index' %}"><img src="{% static 'logo_negro.png' %}" alt="My image" style="width:200px;height:50px;"></a>
+     
+    
+
+    <form method="POST" action="">
+        {%csrf_token%}
+        <label></label>
+        {% render_field form.username type="text" class="form-control" id="id_username" placeholder="Usuario" %} 
+        <br>
+        <label></label>
+        {% render_field form.password type="password" class="form-control" id="id_password" placeholder="Password" %} 
+        <br>
+        <input type="submit" class="boton_ingreso" value="Login">
+
+    </form>
+
+    <p class="entrada">¿No tienes una cuenta? <br>
+        <a href="">Solicitar acceso</a>
+    </p>
+        {% if form.errors %}
+    
+
+          <p class="error">Usuario y/o password incorrectos</p>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

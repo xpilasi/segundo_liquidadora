@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content%}
+
+<div class="titulos">Exportar datos</div>
+<div id="base"> 
+    <hr>
+    <table class="tabla_general">
+        <tr class="tr_general">
+            <th class="th_general">Base de datos</th>
+            <th class="th_general">Acción</th>
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Siniestros</td>
+            <td class="td_general"><a href="{% url 'exportar_db_siniestros'%}"><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a></td>
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Usuarios</td>
+            <td class="td_general"><a href="{% url 'exportar_db_usuarios'%}"><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a></td>
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Marcas y modelos</td>
+            <td class="td_general"><a href=""><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a></td>
+        </tr>
+        
+    
+    </table>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

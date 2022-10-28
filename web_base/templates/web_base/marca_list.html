@@ -1,0 +1,44 @@
+
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %} Editar Marcas {% endblock %}
+{% block content %}
+ 
+
+<div class="titulos"><a href="{% url 'mantencion' %}">Mantención BD > </a>Marcas</div>
+<div id="base"> 
+    <p></p>  
+    <table class="tabla_general">
+        <tr class="tr_general">
+            <th class="th_general">Id #</th>
+            <th class="th_general">Cod marca</th>
+            <th class="th_general">Marca</th>
+            <th class="th_general">Acción</th>
+        </tr>
+
+        {% for m in marca%}
+
+            {% if m.marca and m.cod_marca %}
+            <tr class="tr_general">
+                <td class="td_general">{{m.id}}</td>
+                <td class="td_general">{{m.cod_marca}}</td>
+                <td class="td_general">{{m.marca}} </a></td>
+                <td class="td_general">
+                    <a href="{% url 'editar_marca' %}{{m.id}}">
+                        <img src="{% static 'iconos/editar.png' %}" alt="Editar">
+                    </a>
+                </td>
+            </tr>
+            
+            {% endif %}  
+
+        {% endfor %}
+        </table>
+
+        <p><a href="{% url 'editar_marca' %}"><h3>Agregar marca</h3></a></p> 
+</div> 
+
+
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        <!--Título de cada página-->
+        {% endblock %}
+        | LiquidaYa
+    </title>
+    <!--CSS--><link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/><!--Hay que cargar el static al inicio-->
+    {% comment %} <!--CSS--><link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/><!--Hay que cargar el static al inicio--> {% endcomment %}
+</head> 
+<body>
+
+    {% if request.user.is_authenticated %}
+    
+    <div id="content">
+        <div class="menu_top">
+            <img class="logo_menu"src={% static 'logo_blanco.png' %} alt="My image" style="width:140px;height:35px;">
+            
+            <img class="rrss" src={% static 'iconos/linkedin.png' %} alt="Linkedin" style="width:30px;height:30px;">
+            <img class="rrss" src={% static 'iconos/fb.png' %} alt="Facebook" style="width:30px;height:30px;">    
+        </div>
+
+        <div class="menu_top_sub">
+            <input type="checkbox" id="check_int">
+            <label for="check_int" class="checkbtn_int">
+                <img src={% static 'iconos/menu.png' %} class="menu_hamb_int" alt="menu" style="width:40px;height:40px;">   
+            </label>  
+             
+                <ul>
+                    <li><a href="{% url 'mi_perfil' request.user.id %}">INICIO</a> </li>
+                    <li><a href="{% url 'registro' %}">INGRESO DATOS</a></li>
+                    <li><a href="{% url 'exportar' %}">EXPORTAR</a></li>
+                    <li><a href="{% url 'siniestros' %}">ESTADOS</a></li>
+                    <li><a href="{% url 'mantencion' %}">MANTENCION</a></li>
+                </ul>
+            
+            <div class="menu_derecha">
+                    
+                    <strong>{{request.user}}</strong>  
+                    <a href="{%url 'logout'%}"> | Logout</a>
+                    
+                
+            <span class="fecha_menu"> | Fecha actual: {% now 'd-m-Y'%}</span>
+            </div>
+        </div>
+    {% else %}
+        
+    {% endif %}
+
+
+   
+           
+            {% block content %}
+                <h3>-- Contenido vacío --</h3>
+            {% endblock %}
+
+        </div>
+        
+    </div>
+  
+    <footer class="footer">
+        <div class="ft_texto">
+        <a href="">Corporativo</a>/
+        <a href="">FAQ</a>/
+        <a href="">Contacto</a>
+        <div class="ft_texto_dr">Pedro de Valdivia 4490, Providencia
+        </div>
+    </div>
+    </footer>
+</body>
+</html>

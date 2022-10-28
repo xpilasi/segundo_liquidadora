@@ -1,0 +1,62 @@
+
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content%}
+
+<div class="titulos">Mantención BD</div>
+<div id="base">     
+
+<h3 class="subs">Editar Bases de Datos</h3>
+<hr>
+    <table class="tabla_general">
+        <tr class="tr_general">
+            <th class="td_general">Nombre BD</th>
+            <th class="td_general">Acción</th>
+            
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Tipo de siniestro</td>
+            <td class="td_general">
+                <a href="{% url 'editar_tipo_siniestro' %}"><img src="{% static 'iconos/ojo.png' %}" alt="Ver"></a>
+                <a href=""><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a>
+            </td>
+            
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Tipo de vehículo</td>
+            <td class="td_general">
+                <a href="{% url 'editar_tipo_vehiculo' %}"><img src="{% static 'iconos/ojo.png' %}" alt="Ver"></a>
+                <a href=""><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a>
+            </td>
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Marcas</td>
+            <td class="td_general">
+                <a href="{% url 'editar_marca' %}"><img src="{% static 'iconos/ojo.png' %}" alt="Ver"></a>
+                <a href=""><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a>
+            </td>
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Modelo</td>
+            <td class="td_general">
+                <a href="{% url 'editar_modelo' %}"><img src="{% static 'iconos/ojo.png' %}" alt="Ver"></a>
+                <a href=""><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a></td>
+        </tr>
+        <tr class="tr_general">
+            <td class="td_general">Pólizas</td>
+            <td class="td_general">
+                <a href="{% url 'editar_polizas' %}"><img src="{% static 'iconos/ojo.png' %}" alt="Ver"></a>
+                <a href=""><img src="{% static 'iconos/descargar.png' %}" alt="Descargar"></a></td>
+        </tr>
+    </table>
+
+
+
+    
+</div>
+
+
+{% endblock %}

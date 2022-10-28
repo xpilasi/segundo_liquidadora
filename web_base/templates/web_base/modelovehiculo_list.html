@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %} Editar Modelo {% endblock %}
+{% block content %}
+
+    <div class="titulos"><a href="{% url 'mantencion' %}">Mantención BD > </a>Modelos </div>
+    <div id="base"> 
+        <p></p>  
+
+        <table class="tabla_general">
+            <tr class="tr_general">
+                <th class="th_general">Id #</th>
+                <th class="th_general">Cod modelo</th>
+                <th class="th_general">Modelo</th>
+                <th class="th_general">Acción</th>
+            </tr>
+
+            {% for mod in modelo %}
+
+                {% if mod.modelo and mod.cod_modelo %}
+                <tr class="tr_general">
+                    <td class="td_general">{{mod.id}}</td>
+                    <td class="td_general">{{mod.cod_modelo}}</td>
+                    <td class="td_general">{{mod.modelo }}</td>
+                    <td class="td_general">
+                        <a href="{% url 'editar_modelo' %}{{mod.id}}">
+                            <img src="{% static 'iconos/editar.png' %}" alt="Editar">
+                        </td>
+                </tr>
+                
+                {% endif %}  
+
+            {% endfor %}
+            </table>
+
+        <p>
+            <a href="{% url 'editar_modelo' %}"><h3>Agregar modelo</h3></a>
+            </p>  
+    </div>
+
+
+{% endblock %}

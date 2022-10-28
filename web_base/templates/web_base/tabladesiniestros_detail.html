@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block title %} Detalle Siniestro{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="titulos"><a href="{% url 'siniestros' %}">Siniestros ></a>Detalle siniestro</div>
+<div id="base">  
+    <div class="estado_siniestro">
+        
+        <p class="subs">Estado siniestro: 
+            {% if detalle_siniestro.estado_siniestro == "Aprobado"%}
+            <strong class = "aprobado">{{detalle_siniestro.estado_siniestro}} </strong>
+            {% elif detalle_siniestro.estado_siniestro == "En entrega"%}
+            <strong class = "en_entrega">{{detalle_siniestro.estado_siniestro}} </strong>
+            {% elif detalle_siniestro.estado_siniestro == "Cerrada"%}
+            <strong class = "cerrada">{{detalle_siniestro.estado_siniestro}} </strong>
+            {% elif detalle_siniestro.estado_siniestro == "Incidencia"%}
+            <strong class = "incidencia">{{detalle_siniestro.estado_siniestro}} </strong>
+            {% else %}
+            <strong class = "otras">{{detalle_siniestro.estado_siniestro}}</strong>
+            {% endif %}
+       </p>
+        <p class="subs"> Última actualización: <strong>{{detalle_siniestro.updated_at| date:'d/m/Y'}}</strong></p>
+    </div>
+    <hr>
+    <div class="ver_siniestro">
+        <h4 class="subs">Datos siniestro</h4>
+        <table class="tabla_detalle_sin">
+            <tr class="tr_detalle_sin">
+                <td class="td_detalle_sin">Id: </td>
+                <td class="td_detalle_sin">{{detalle_siniestro.id}}</th>
+            </tr>
+            <tr class="tr_detalle_sin">
+                <td class="td_detalle_sin">Tipo: </td>
+                <td class="td_detalle_sin">{{detalle_siniestro.tipo_de_siniestro}}</th>
+            </tr>
+            <tr class="tr_detalle_sin">
+                <td class="td_detalle_sin"> Fecha: </td>
+                <td class="td_detalle_sin">{{detalle_siniestro.fecha_siniestro|date:'d/m/Y'}}</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="ver_siniestro">
+        <h4 class="subs">Datos conductor(a)</h4>
+        <table class="tabla_detalle_sin">
+            <tr class="tr_detalle_sin">
+                <td class="td_detalle_sin">Rut: </td>
+                <td class="td_detalle_sin">{{detalle_siniestro.rut_conductor}}</th>
+            </tr>
+            <tr class="tr_detalle_sin">
+                <td class="td_detalle_sin">Nombre completo: </td>
+                <td class="td_detalle_sin">{{detalle_siniestro.nombre_conductor}} {{detalle_siniestro.apellido_conductor}}</th>
+            </tr>
+            <tr class="tr_detalle_sin">
+                <td class="td_detalle_sin">Tipo de póliza: </td>
+                <td class="td_detalle_sin">{{detalle_siniestro.tipo_de_poliza}}</th>
+            </tr>
+        
+        </table>
+
+    <div class="desc_siniestro">
+
+        <h4 class="subs">Descripción siniestro</h4>
+        <p class="subs">{{detalle_siniestro.descripcion_siniestro}}</p>
+    </div>
+</div>
+
+
+
+    
+
+    
+{% endblock %}
