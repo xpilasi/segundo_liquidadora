@@ -1,2 +1,2 @@
-web: gunicorn proyecto_liquidadora.wsgi:application
+web gunicorn proyecto_liquidadora.wsgi:application
 
